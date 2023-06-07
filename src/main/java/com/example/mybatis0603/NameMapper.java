@@ -11,6 +11,5 @@ public interface NameMapper {
     @Select("SELECT * FROM anime")
     List<Name> findAll();
     @Select("SELECT * FROM anime WHERE id = #{id}")
-
     Optional<Name> findById(int id);
 }
