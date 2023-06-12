@@ -1,4 +1,4 @@
-package com.example.mybatis0603;
+package com.example.mybatis0603.controller;
 
 public class Name {
     private int id;
