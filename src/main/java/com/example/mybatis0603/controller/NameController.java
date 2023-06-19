@@ -1,36 +1,46 @@
 package com.example.mybatis0603.controller;
 
-import com.example.mybatis0603.NameMapper;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.mybatis0603.entity.Name;
+import com.example.mybatis0603.form.CreateForm;
+import com.example.mybatis0603.mapper.NameMapper;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
+import com.example.mybatis0603.service.AnimeService;
 
+import java.net.URI;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
 public class NameController {
-    public final NameMapper nameMapper;
+    public final AnimeService animeService;
 
-    public NameController(NameMapper nameMapper) {
-        this.nameMapper = nameMapper;
+    public NameController(AnimeService animeService) {
+        this.animeService = animeService;
     }
 
     @GetMapping("/names")
     public List<Name> names() {
-        return nameMapper.findAll();
+        return animeService.findAll();
     }
 
     @GetMapping("/names/{id}")
     public Optional<Name> selectOneName(@PathVariable int id) {
-        return nameMapper.findById(id);
+        return animeService.findById(id);
     }
 
-    @PostMapping("/create")
-    public String createName(){
-        final  var name = nameMapper.insert("式守都");
-        System.out.println(name);
-        return "creataName";
+    @PostMapping("/names")
+    public ResponseEntity<Map<String, String>> create(
+            @RequestBody @Validated CreateForm form, UriComponentsBuilder uriComponentsBuilder) {
+        Name name = animeService.createName(form);
+        URI url = uriComponentsBuilder
+                .path("/names/" + name.getName())
+                .build()
+                .toUri();
+        return ResponseEntity.created(url).body(Map.of("message", "name successfully created"));
     }
+
 }
