@@ -1,12 +1,12 @@
-package com.example.mybatis0603;
+package com.example.mybatis0603.entity;
 
 public class Name {
     private int id;
     private String name;
 
-    public Name(int id , String name) {
+    public Name(String name) {
         this.id = id;
-        this.name =name;
+        this.name = this.name;
     }
 
     public int getId() {
@@ -15,5 +15,9 @@ public class Name {
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
