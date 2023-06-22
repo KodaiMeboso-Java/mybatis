@@ -28,7 +28,7 @@ public class NameController {
     }
 
     @GetMapping("/names/{id}")
-    public Optional<Name> selectOneName(@PathVariable int id) {
+    public List<Name> selectOneName(@PathVariable("id") int id) {
         return animeService.findById(id);
     }
 

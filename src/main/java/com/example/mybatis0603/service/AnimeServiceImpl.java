@@ -20,8 +20,7 @@ public class AnimeServiceImpl implements AnimeService{
         return nameMapper.findAll();
     }
 
-
-    public Optional<Name> findById(int id) {
+    public List<Name> findById(int id) {
         return nameMapper.findById(id);
     }
 
