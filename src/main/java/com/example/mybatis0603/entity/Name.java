@@ -2,22 +2,22 @@ package com.example.mybatis0603.entity;
 
 public class Name {
     private int id;
-    private String name;
+    private String characterName;
 
-    public Name(String name) {
+    public Name(String characterName) {
         this.id = id;
-        this.name = this.name;
+        this.characterName = characterName;
     }
 
     public int getId() {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getCharacterName() {
+        return characterName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCharacterName(String characterName) {
+        this.characterName = characterName;
     }
 }
