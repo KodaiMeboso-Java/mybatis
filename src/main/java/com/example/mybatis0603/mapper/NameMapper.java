@@ -12,7 +12,7 @@ public interface NameMapper {
     List<Name> findAll();
 
     @Select("SELECT * FROM anime WHERE id = #{id}")
-    Optional<Character> findById(int id);
+    Optional<Name> findById(int id);
 
     @Insert("INSERT INTO anime (characterName) VALUE (#{name}) ")
     @Options(useGeneratedKeys = true, keyProperty = "id")

@@ -2,7 +2,7 @@ package com.example.mybatis0603.controller;
 
 public class NameResponse {
     private int id;
-    private String name;
+    private String characterName;
 
     public int getId() {
         return id;
@@ -13,10 +13,10 @@ public class NameResponse {
     }
 
     public String getName() {
-        return name;
+        return characterName;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.characterName = name;
     }
 }

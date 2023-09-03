@@ -6,9 +6,9 @@ import com.example.mybatis0603.form.CreateForm;
 import com.example.mybatis0603.mapper.NameMapper;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+
 
 @Service
 public class AnimeServiceImpl implements AnimeService {
@@ -22,14 +22,14 @@ public class AnimeServiceImpl implements AnimeService {
         return nameMapper.findAll();
     }
 
-    public List<Character> findById(int id) {
-//        Optional<Character> character = this.nameMapper.findById(id);
-//        if (character.isPresent()) {
-//            return character.get();
-//        } else {
-//            throw new ResourceNotFoundException("名前が見つかりません！");
-//        }
-        return Collections.singletonList(this.nameMapper.findById(id).orElseThrow(() -> new ResourceNotFoundException("名前が見つかりません！")));
+    @Override
+    public Name findById(int id) {
+        Optional<Name> name = this.nameMapper.findById(id);
+        if (name.isPresent()) {
+            return name.get();
+        } else {
+            throw new ResourceNotFoundException("名前が見つかりません！");
+        }
     }
 
     @Override

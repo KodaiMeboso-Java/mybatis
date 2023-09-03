@@ -3,7 +3,6 @@ package com.example.mybatis0603.controller;
 import com.example.mybatis0603.entity.Name;
 import com.example.mybatis0603.exception.ResourceNotFoundException;
 import com.example.mybatis0603.form.CreateForm;
-import com.example.mybatis0603.mapper.NameMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +15,6 @@ import java.net.URI;
 import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 @RestController
 public class NameController {
@@ -32,7 +30,7 @@ public class NameController {
     }
 
     @GetMapping("/names/{id}")
-    public List<Character> selectOneName(@PathVariable("id") int id) {
+    public Name selectOneName(@PathVariable("id") int id) {
         return animeService.findById(id);
     }
 
