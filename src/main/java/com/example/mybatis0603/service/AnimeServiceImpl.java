@@ -25,11 +25,12 @@ public class AnimeServiceImpl implements AnimeService {
     @Override
     public Name findById(int id) {
         Optional<Name> name = this.nameMapper.findById(id);
-        if (name.isPresent()) {
-            return name.get();
-        } else {
-            throw new ResourceNotFoundException("名前が見つかりません！");
-        }
+//        if (name.isPresent()) {
+//            return name.get();
+//        } else {
+//            throw new ResourceNotFoundException("名前が見つかりません！");
+//        }
+        return name.orElseThrow(() -> new ResourceNotFoundException("名前が見つかりません！"));
     }
 
     @Override
