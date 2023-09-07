@@ -4,13 +4,13 @@ import jakarta.validation.constraints.NotBlank;
 
 public class CreateForm {
     @NotBlank
-    private String name;
+    private String charactername;
 
     public String getName() {
-        return name;
+        return charactername;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.charactername = name;
     }
 }
