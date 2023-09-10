@@ -1,8 +1,7 @@
 package com.example.mybatis0603.controller;
 
 import com.example.mybatis0603.entity.Name;
-import com.example.mybatis0603.form.CreateForm;
-import org.springframework.http.MediaType;
+import com.example.mybatis0603.form.CreateName;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -33,10 +32,10 @@ public class NameController {
 
     @PostMapping("/names")
     public ResponseEntity<Map<String, String>> create(
-            @RequestBody @Validated CreateForm form, UriComponentsBuilder uriComponentsBuilder) {
-        Name name = animeService.createName(form);
+            @RequestBody @Validated CreateName createName, UriComponentsBuilder uriComponentsBuilder) {
+        animeService.createName(createName);
         URI url = uriComponentsBuilder
-                .path("/names/" + name.getCharacterName())
+                .path("/names/" + createName.getName())
                 .build()
                 .toUri();
         return ResponseEntity.created(url).body(Map.of("message", "name successfully created"));

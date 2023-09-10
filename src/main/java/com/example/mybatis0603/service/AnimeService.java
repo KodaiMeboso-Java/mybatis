@@ -1,7 +1,7 @@
 package com.example.mybatis0603.service;
 
 import com.example.mybatis0603.entity.Name;
-import com.example.mybatis0603.form.CreateForm;
+import com.example.mybatis0603.form.CreateName;
 
 import java.util.List;
 
@@ -12,5 +12,5 @@ public interface AnimeService {
 
     Name findById(int id);
 
-    Name createName(CreateForm form);
+    void createName(CreateName createName);
 }

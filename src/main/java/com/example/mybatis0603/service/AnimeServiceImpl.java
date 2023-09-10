@@ -2,7 +2,7 @@ package com.example.mybatis0603.service;
 
 import com.example.mybatis0603.entity.Name;
 import com.example.mybatis0603.exception.ResourceNotFoundException;
-import com.example.mybatis0603.form.CreateForm;
+import com.example.mybatis0603.form.CreateName;
 import com.example.mybatis0603.mapper.NameMapper;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @Service
 public class AnimeServiceImpl implements AnimeService {
-    private final NameMapper nameMapper;
+    NameMapper nameMapper;
 
     public AnimeServiceImpl(NameMapper nameMapper) {
         this.nameMapper = nameMapper;
@@ -29,13 +29,8 @@ public class AnimeServiceImpl implements AnimeService {
     }
 
     @Override
-    public Name createName(CreateForm form) {
-        return null;
+    public void createName(CreateName createName) {
+        nameMapper.createName(createName);
     }
 
-    public Name createForm(CreateForm createForm) {
-        Name name = new Name(createForm.getName());
-        nameMapper.createName(name);
-        return name;
-    }
 }
