@@ -38,8 +38,8 @@ public class NameController {
             @RequestBody @Validated CreateName createName, UriComponentsBuilder uriComponentsBuilder) {
         animeService.createName(createName);
         URI url = uriComponentsBuilder
-                .path("/names/")
-                .buildAndExpand("nameMapper.insert(int id)")
+                .path("/names/{id}")
+                .buildAndExpand(createName.getId())
                 .toUri();
         return ResponseEntity.created(url).body(Map.of("message", "name successfully created"));
     }
