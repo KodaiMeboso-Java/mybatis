@@ -44,5 +44,10 @@ public class NameController {
         return ResponseEntity.created(url).body(Map.of("message", "name successfully created"));
     }
 
+    @PutMapping("/names/update/{id}")
+    public ResponseEntity<String> update(@RequestBody Name name, @PathVariable("id") int id) {
+        animeService.update(name.getId(), name.getCharacterName());
+        return ResponseEntity.ok("name successfully updated");
+    }
 
 }

@@ -33,4 +33,9 @@ public class AnimeServiceImpl implements AnimeService {
         nameMapper.createName(createName);
     }
 
+    @Override
+    public void update(int id, String name) {
+        nameMapper.update(id,name);
+    }
+
 }

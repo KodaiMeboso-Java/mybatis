@@ -13,4 +13,6 @@ public interface AnimeService {
     Name findById(int id);
 
     void createName(CreateName createName);
+
+    void update(int id, String name);
 }

@@ -18,4 +18,7 @@ public interface NameMapper {
     @Insert("INSERT INTO anime (characterName) VALUE (#{name}) ")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     void createName(CreateName createName);
+
+    @Update("UPDATE anime set characterName = #{name} where id = #{id}")
+    void update(int id, String name);
 }
