@@ -19,6 +19,6 @@ public interface NameMapper {
     @Options(useGeneratedKeys = true, keyProperty = "id")
     void createName(CreateName createName);
 
-    @Update("UPDATE anime set characterName = #{name} where id = #{id}")
+    @Update("UPDATE anime SET characterName = #{name} WHERE id = #{id}")
     void update(int id, String name);
 }
