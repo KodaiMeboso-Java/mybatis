@@ -50,4 +50,10 @@ public class NameController {
         return ResponseEntity.ok("name successfully updated");
     }
 
+    @DeleteMapping("/names/{id}")
+    public ResponseEntity<String> delete(@PathVariable("id") int id) {
+        animeService.delete(id);
+        return ResponseEntity.ok("name successfully deleted");
+    }
+
 }
