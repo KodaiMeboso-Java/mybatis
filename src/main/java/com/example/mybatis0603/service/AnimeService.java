@@ -15,4 +15,6 @@ public interface AnimeService {
     void createName(CreateName createName);
 
     void update(int id, String name);
+
+    void delete(int id);
 }

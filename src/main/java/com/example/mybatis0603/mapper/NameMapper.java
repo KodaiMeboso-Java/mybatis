@@ -21,4 +21,7 @@ public interface NameMapper {
 
     @Update("UPDATE anime SET characterName = #{name} WHERE id = #{id}")
     void update(int id, String name);
+
+    @Delete("DELETE FROM anime WHERE id = #{id}")
+    void delete(int id);
 }

@@ -36,7 +36,13 @@ public class AnimeServiceImpl implements AnimeService {
     @Override
     public void update(int id, String name) {
         findById(id);
-        nameMapper.update(id,name);
+        nameMapper.update(id, name);
+    }
+
+    @Override
+    public void delete(int id) {
+        findById(id);
+        nameMapper.delete(id);
     }
 
 }
